@@ -60,6 +60,6 @@ typings/
 .env
 
 
-# intellij
-
-.idea/
+/src/chap002/node_modules/
+/.idea/
+/LearningJS.iml
