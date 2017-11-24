@@ -60,6 +60,7 @@ typings/
 .env
 
 
-/src/chap002/node_modules/
+
+.idea/
+LearningJS.iml
 /.idea/
-/LearningJS.iml
