@@ -62,11 +62,11 @@ console.log(a.name === b.name); // true
 
 
 console.log(3 + 5 + "8") // "88" ㅇㅋ
-console.log("3" + 5 + 8) // "358" ㅅㅂ ㅋㅋㅋㅋ
+console.log("3" + 5 + 8) // "358" ㅋㅋㅋㅋ
 
 // undefined , null , false, 0 , NaN , ''  은 모두 거짓같은 값, 이거 외에는 모두 참 같은 값.  놀라운 것은 문자는 "false" 참이다 ㅡㅡ;
 
-console.log("false" ? true : false); // true ㅡㅡ; ㅅㅂ ㅋㅋㅋㅋㅋㅋㅋ
+console.log("false" ? true : false); // true ㅡㅡ; ㅋㅋㅋㅋㅋㅋㅋ
 
 let nullObj = null;
 
