@@ -124,10 +124,30 @@ console.log(fffObj2.func());
 console.log(fffObj2);
 
 
-// this 선언
+// this 선언 , 사실 메서드는 this 키워드를 가지는 내부 함수를 뜻함. 객체지향의 method를 좀 따라하려고 하는듯
 const fffObj3 = {
     name: 'jhun',
     func() {return `${this.name} 's 30 old`;}
 }
 
 console.log(fffObj3.func());
+
+const oooooo = {
+    name: 'julie',
+    greetBackward : function(){
+        const self = this;
+        function getReverseName(){
+            let nameBackward ='';
+            for(let i=self.name.length -1; i>=0; i--){
+                nameBackward += self.name[i];
+            }
+            return nameBackward;
+        }
+        return `${getReverseName()} == ${this.name} == ${self.name}`;
+    }
+
+};
+
+console.log(oooooo.greetBackward());
+
+// page 180 잠시 휴식
