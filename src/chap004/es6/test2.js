@@ -111,11 +111,15 @@ console.log(defaultF("a할당", "b에할당"));
 
 const fffObj = {
     name: 'jhun',
-    func : function(){ return '30 old';}
+    func: function () {
+        return '30 old';
+    }
 }
 const fffObj2 = {
     name: 'jhun',
-    func() {return '30 old';}
+    func() {
+        return '30 old';
+    }
 }
 
 console.log(fffObj.func());
@@ -127,27 +131,74 @@ console.log(fffObj2);
 // this 선언 , 사실 메서드는 this 키워드를 가지는 내부 함수를 뜻함. 객체지향의 method를 좀 따라하려고 하는듯
 const fffObj3 = {
     name: 'jhun',
-    func() {return `${this.name} 's 30 old`;}
+    func() {
+        return `${this.name} 's 30 old`;
+    }
 }
 
 console.log(fffObj3.func());
 
 const oooooo = {
     name: 'julie',
-    greetBackward : function(){
+    greetBackward: function () {
         const self = this;
-        function getReverseName(){
-            let nameBackward ='';
-            for(let i=self.name.length -1; i>=0; i--){
+
+
+        function getReverseName() {
+            let nameBackward = '';
+            for (let i = self.name.length - 1; i >= 0; i--) {
                 nameBackward += self.name[i];
             }
             return nameBackward;
         }
         return `${getReverseName()} == ${this.name} == ${self.name}`;
+
     }
 
 };
 
-console.log(oooooo.greetBackward());
+console.log(`ㅂㅂㅂㅂ${oooooo.greetBackward()}`);
 
 // page 180 잠시 휴식
+
+// 자바스크립트 싱글 스레드
+
+// 보통은 익명함수를 씀, 내부 함수에 이름을 정하는 경우는 재귀를 돌리거나 gg 객체 안에서 호출하기 위함
+const gg = function f(stop) {
+    console.log(`ff started`);
+    if (stop) {
+        console.log('f stopped')
+        return;
+    };
+    f(true);
+};
+
+gg(false);
+
+
+const f1 = function() {return "hello"};
+const f2 = () => "hello";
+const f3 = name => `hellp ${name}`;
+const f4 = (a,b) => a+b;
+
+console.log(f3('iw.jhun'));
+console.log(f4(1,2));
+
+
+
+// 람다식을 쓰면 this가 내부에서 외부로도 접근이 가능해진다.
+const hahaha = {
+    name : 'iw.jhun',
+    greetBackward : function(){
+        const getReverseName = () => {
+            let nameBackWards= '';
+            for(let i = this.name.length-1; i >=0; i--){
+                nameBackWards += this.name[i];
+            }
+            return nameBackWards;
+        };
+        return `${getReverseName()} si eman ym, hello`;
+    }
+};
+
+console.log(hahaha.greetBackward());
