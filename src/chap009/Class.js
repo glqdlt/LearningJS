@@ -19,13 +19,33 @@ function Es5Car() {
 
 
 class SuperCar {
+
+
+    //정적 메서드, id값 자동으로 할당해주는것
+    static getNextVin(){
+        return this.nextVin++;
+    }
+
     constructor(make, model) {
         this.make = make;
         this.model = model;
         this._userGears = ['P', 'N', 'R', 'D'];
         this._userGear = this._userGears[0];
+        this.vin = SuperCar.getNextVin();
 
     }
+
+
+    // arg 로 받는 car1, car2 객체의 model와 make가 같은지 체크하는 것
+    static areSimilar(car1, car2){
+        return car1.make === car2.make && car1.model === car2.model;
+    }
+
+    // vin 이라는 고유의 id값이 같은지 체크하는 정적메서드.
+    static areSame(car1, car2){
+        return car1.vin === car2.vin;
+    }
+
 
     get userGear() {
         return this._userGear
@@ -65,3 +85,24 @@ console.log(car1.userGear);
 console.log(car2.userGear);
 
 // TODO car1.shift 를 원래 SuperCar().prototype.shift 로 되돌리려면 어떻게 해야할까?
+
+// 지금까지 본 것은 인스턴스 메서드라고 한다, 이제부터 클래스메서드 (정적 메서드) 에 대해서 알아보자.
+
+SuperCar.nextVin = 0;
+
+const superCar1 = new SuperCar("Tesla","S");
+const superCar2 = new SuperCar("Tesla","3");
+const superCar3 = new SuperCar("Tesla","3");
+
+console.log(superCar1.vin);
+console.log(superCar2.vin);
+console.log(superCar3.vin);
+
+const superCar4 = new SuperCar("Tesla","4");
+console.log(superCar4.vin);
+
+console.log(SuperCar.areSimilar(superCar1,superCar2));
+console.log(SuperCar.areSimilar(superCar3,superCar2));
+
+console.log(SuperCar.areSame(superCar2, superCar2));
+console.log(SuperCar.areSame(superCar2, superCar3));
