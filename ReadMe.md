@@ -1,16 +1,6 @@
-# Subject
+# ES6
 
-- - -
-
-- - -
-
-
-* body
-
-* body2
-
-
-
+Study in Es6 ..
 
 
 
